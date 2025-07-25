@@ -57,6 +57,10 @@ struct Index {
         }
         .height('100%')
         .width('100%')
+
+        Column(){}
+        .height('100%')
+        .width('100%')
       }
     }
   }

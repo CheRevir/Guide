@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "鸿蒙Next引导组件",
   "main": "Index.ets",
-  "author": "",
+  "author": "CheRevir",
   "license": "Apache-2.0",
+  "repository": "https://github.com/CheRevir/Guide.git",
   "dependencies": {}
 }

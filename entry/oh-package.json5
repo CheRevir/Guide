@@ -6,7 +6,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "guide": 'file:../library'
-  }
+    "guide": "^1.0.0"
+  },
+  "devDependencies": {},
+  "dynamicDependencies": {}
 }
-
