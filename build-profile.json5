@@ -1,12 +1,26 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\Lzk\\.ohos\\config\\default_Guide_YcULHkFGdRC-zNzu6RGLyHkK0R-R5FVEMDTZgbAiLjc=.cer",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B772C10DB797B65A29BABD32BE8AE652193D80BFB41395380B207800A3B4FC7609E08557D529FBF",
+          "profile": "C:\\Users\\Lzk\\.ohos\\config\\default_Guide_YcULHkFGdRC-zNzu6RGLyHkK0R-R5FVEMDTZgbAiLjc=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\Lzk\\.ohos\\config\\default_Guide_YcULHkFGdRC-zNzu6RGLyHkK0R-R5FVEMDTZgbAiLjc=.p12",
+          "storePassword": "0000001BF2A1FB9BE4E5119B25017473E79DB8AC351EFA0B4D1CD646028CCE7CF42EEC861BB0AB93F243D4"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
         "targetSdkVersion": "5.0.5(17)",
-        "compatibleSdkVersion": "5.0.5(17)",
+        "compatibleSdkVersion": "5.0.1(13)",
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {
@@ -39,7 +53,7 @@
       ]
     },
     {
-      "name": "library",
+      "name": "guide",
       "srcPath": "./library",
     }
   ]

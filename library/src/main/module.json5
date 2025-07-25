@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "library",
+    "name": "guide",
     "type": "har",
     "deviceTypes": [
       "default",
