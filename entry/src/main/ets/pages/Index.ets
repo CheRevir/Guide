@@ -29,7 +29,7 @@ function builder(params: CustomGuideParams) {
 @ComponentV2
 struct Index {
   @Local message: string = 'Hello World';
-  @Local params: CustomGuideParams = new CustomGuideParams();
+  private params: CustomGuideParams = new CustomGuideParams();
 
   aboutToAppear(): void {
 

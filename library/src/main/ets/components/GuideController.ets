@@ -28,6 +28,10 @@ export class GuideController extends NodeController {
    */
   private mask: MaskRender | null = null;
   /**
+   * 蒙版大小
+   */
+  private maskSize: Size | undefined = undefined;
+  /**
    * 引导是否显示
    */
   @Trace
@@ -35,7 +39,7 @@ export class GuideController extends NodeController {
 
   aboutToResize(size: Size): void {
     if (this.mask !== null) {
-      this.mask.setSize(size);
+      this.mask.setSize(this.maskSize ?? size);
     }
   }
 
@@ -88,6 +92,16 @@ export class GuideController extends NodeController {
    */
   setGuideBuilderParams<T extends GuideParams>(params: T | undefined): GuideController {
     this.params = params;
+    return this;
+  }
+
+  /**
+   * 设置蒙版大小
+   * @param size
+   * @returns
+   */
+  setMaskSize(size: Size | undefined): GuideController {
+    this.maskSize = size;
     return this;
   }
 

@@ -1,7 +1,5 @@
-import { GuideParams } from "guide";
+import { GuideParams } from 'guide';
 
-@ObservedV2
-export class CustomGuideParams implements GuideParams{
-  @Trace
-  count:number=0;
+export class CustomGuideParams implements GuideParams {
+  count: number = 0;
 }
