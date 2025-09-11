@@ -1,4 +1,4 @@
-import { ColorMask, Guide, guideController } from 'guide';
+import { Guide, GuideArea, guideController, TranAreaMask } from 'guide';
 import { CustomGuideParams } from './CustomGuideParams';
 
 @Builder
@@ -30,6 +30,12 @@ function builder(params: CustomGuideParams) {
 struct Index {
   @Local message: string = 'Hello World';
   private params: CustomGuideParams = new CustomGuideParams();
+  private area: Area = {
+    width: 0,
+    height: 0,
+    position: {},
+    globalPosition: {}
+  }
 
   aboutToAppear(): void {
 
@@ -38,29 +44,39 @@ struct Index {
   build() {
     Stack() {
       Guide() {
-        RelativeContainer() {
+        Column() {
           Text(this.message)
             .id('HelloWorld')
             .fontSize($r('app.float.page_text_font_size'))
             .fontWeight(FontWeight.Bold)
-            .alignRules({
-              center: { anchor: '__container__', align: VerticalAlign.Center },
-              middle: { anchor: '__container__', align: HorizontalAlign.Center }
+            .onAreaChange((oldValue: Area, newValue: Area) => {
+              this.area = newValue;
+            })
+            .backgroundColor(Color.Red)
+            .margin({
+              top: 10
             })
             .onClick(() => {
               this.message = 'Welcome';
-              guideController.setMask(new ColorMask())
+
+            })
+
+          Text('aaaaaaaaa')
+            .fontSize($r('app.float.page_text_font_size'))
+            .fontWeight(FontWeight.Bold)
+            .onClick(() => {
+              guideController.setMask(new TranAreaMask(new GuideArea(this.area, 0,{},true)))
                 .setGuideBuilder(wrapBuilder(builder))
                 .setGuideBuilderParams(this.params)
                 .show();
+            })
+            .margin({
+              top: 100
             })
         }
         .height('100%')
         .width('100%')
 
-        Column(){}
-        .height('100%')
-        .width('100%')
       }
     }
   }

@@ -98,7 +98,7 @@ function builder(params: CustomGuideParams) {
 
 # 蒙版
 
-内置单一颜色蒙版ColorMask，默认颜色rgba(0x00,0x00,0x00,0x99)。
+内置单一颜色蒙版ColorMask和区域透明蒙版TranAreaMask，默认颜色rgba(0x00,0x00,0x00,0x99)。
 可通过继承MaskRender并重写drawMask方法来自定义蒙版
 
 ```javascript

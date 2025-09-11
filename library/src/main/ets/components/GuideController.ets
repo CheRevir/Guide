@@ -1,11 +1,11 @@
 import { MaskRender } from './mask/MaskRender';
 import { BuilderNode, FrameNode, NodeController, Size, UIContext } from '@kit.ArkUI';
 import { GuideParams } from './GuideParams';
+import { GuideState } from './GuideState';
 
 /**
  * 引导控制器
  */
-@ObservedV2
 export class GuideController extends NodeController {
   /**
    * 根节点
@@ -32,10 +32,9 @@ export class GuideController extends NodeController {
    */
   private maskSize: Size | undefined = undefined;
   /**
-   * 引导是否显示
+   * 引导状态
    */
-  @Trace
-  isShow: boolean = false;
+  state: GuideState = new GuideState();
 
   aboutToResize(size: Size): void {
     if (this.mask !== null) {
@@ -109,17 +108,17 @@ export class GuideController extends NodeController {
    * 显示
    */
   show() {
-    this.isShow = true;
+    this.state.isShow = true;
   }
 
   /**
    * 隐藏
    */
   dismiss() {
-    if (!this.isShow) {
+    if (!this.state.isShow) {
       return;
     }
-    this.isShow = false;
+    this.state.isShow = false;
     this.builderNode?.dispose();
     this.mask?.dispose();
     this.rootNode?.dispose();

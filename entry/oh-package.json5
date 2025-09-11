@@ -6,7 +6,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "guide": "^1.0.0"
+    "guide": 'file:../library'
   },
   "devDependencies": {},
   "dynamicDependencies": {}

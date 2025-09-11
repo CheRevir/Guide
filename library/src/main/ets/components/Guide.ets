@@ -1,4 +1,5 @@
 import { guideController, GuideController } from './GuideController';
+import { GuideState } from './GuideState';
 
 /**
  * 引导组件
@@ -8,7 +9,8 @@ export struct Guide {
   /**
    * 引导控制器
    */
-  @Param controller: GuideController = guideController;
+  controller: GuideController = guideController;
+  @Local private state: GuideState = this.controller.state;
   /**
    * 主体内容
    */
@@ -18,7 +20,7 @@ export struct Guide {
     Stack() {
       this.builder();
 
-      if (this.controller.isShow) {
+      if (this.state.isShow) {
         NodeContainer(this.controller)
           .width('100%')
           .height('100%')
