@@ -11,7 +11,7 @@ ohpm install guide
 
 ```javascript
 "dependencies": {
-    "guide": "^1.0.1"
+    "guide": "^1.0.2"
   }
 ```
 

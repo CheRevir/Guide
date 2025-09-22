@@ -60,7 +60,6 @@ struct Index {
             })
             .onClick(() => {
               this.message = 'Welcome';
-
             })
 
           Text('aaaaaaaaa')
