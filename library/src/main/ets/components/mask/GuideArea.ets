@@ -120,7 +120,7 @@ export class GuideArea {
    * @returns
    */
   getX(): number {
-    return vp2px(this.area.position.x as number);
+    return vp2px(this.area.globalPosition.x as number);
   }
 
   /**
@@ -128,7 +128,7 @@ export class GuideArea {
    * @returns
    */
   getY(): number {
-    return vp2px(this.area.position.y as number);
+    return vp2px(this.area.globalPosition.y as number);
   }
 
   /**

@@ -1,4 +1,5 @@
 import { Guide, GuideArea, guideController, TranAreaMask } from 'guide';
+import { statusHeight } from '../entryability/EntryAbility';
 import { CustomGuideParams } from './CustomGuideParams';
 
 @Builder
@@ -51,6 +52,7 @@ struct Index {
             .fontWeight(FontWeight.Bold)
             .onAreaChange((oldValue: Area, newValue: Area) => {
               this.area = newValue;
+              this.area.globalPosition.y = this.area.globalPosition.y as number - px2vp(statusHeight)
             })
             .backgroundColor(Color.Red)
             .margin({
@@ -65,7 +67,7 @@ struct Index {
             .fontSize($r('app.float.page_text_font_size'))
             .fontWeight(FontWeight.Bold)
             .onClick(() => {
-              guideController.setMask(new TranAreaMask(new GuideArea(this.area, 0,{},true)))
+              guideController.setMask(new TranAreaMask(new GuideArea(this.area, 18)))
                 .setGuideBuilder(wrapBuilder(builder))
                 .setGuideBuilderParams(this.params)
                 .show();
