@@ -2,6 +2,7 @@ import { MaskRender } from './mask/MaskRender';
 import { BuilderNode, FrameNode, NodeController, Size, UIContext } from '@kit.ArkUI';
 import { GuideParams } from './GuideParams';
 import { GuideState } from './GuideState';
+import { GuideListener } from './GuideListener';
 
 /**
  * 引导控制器
@@ -35,6 +36,10 @@ export class GuideController extends NodeController {
    * 引导状态
    */
   state: GuideState = new GuideState();
+  /**
+   * 监听器
+   */
+  listener: GuideListener | undefined = undefined;
 
   aboutToResize(size: Size): void {
     if (this.mask !== null) {
@@ -101,6 +106,16 @@ export class GuideController extends NodeController {
    */
   setMaskSize(size: Size | undefined): GuideController {
     this.maskSize = size;
+    return this;
+  }
+
+  /**
+   * 设置引导监听器
+   * @param listener
+   * @returns
+   */
+  setGuideListener(listener: GuideListener): GuideController {
+    this.listener = listener;
     return this;
   }
 

@@ -69,6 +69,11 @@ struct Index {
               guideController.setMask(new TranAreaMask(new GuideArea(this.area, 18)))
                 .setGuideBuilder(wrapBuilder(builder))
                 .setGuideBuilderParams(this.params)
+                .setGuideListener({
+                  onState: (isShow: boolean) => {
+                    console.log('aaaaaaaaa', isShow)
+                  }
+                })
                 .show();
             })
             .margin({

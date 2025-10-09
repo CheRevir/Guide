@@ -89,6 +89,7 @@ function builder(params: CustomGuideParams) {
 |setGuideBuilder  | WrappedBuilder  | 设置引导内容全局自定义@Builder函数   |
 |setGuideBuilderParams| GuideParams子类 | 设置引导内容全局自定义@Builder函数参数 |
 |setMaskSize| Size            | 设置蒙版大小                  |
+|setGuideListenr  | GuideListener  |设置监听器         |
 |show|                 | 显示引导                    |
 |dismiss|                 | 隐藏引导                    |
 |rebuild|                 | 重绘                      |

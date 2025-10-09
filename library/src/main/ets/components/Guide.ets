@@ -16,6 +16,13 @@ export struct Guide {
    */
   @BuilderParam builder: () => void;
 
+  @Monitor('state.isShow')
+  onStataChange() {
+    if (this.controller.listener) {
+      this.controller.listener.onState(this.state.isShow);
+    }
+  }
+
   build() {
     Stack() {
       this.builder();

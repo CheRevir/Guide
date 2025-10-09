@@ -11,3 +11,5 @@ export { MaskRender } from './src/main/ets/components/mask/MaskRender';
 export { GuideArea } from './src/main/ets/components/mask/GuideArea';
 
 export { TranAreaMask } from './src/main/ets/components/mask/TranAreaMask';
+
+export { GuideListener } from './src/main/ets/components/GuideListener';
