@@ -86,6 +86,7 @@ export class GuideController extends NodeController {
    */
   setGuideBuilder<T extends GuideParams>(wrapBuilder: WrappedBuilder<[T]> | null): GuideController {
     this.wrapBuilder = wrapBuilder as WrappedBuilder<[GuideParams]>;
+    this.params = undefined;
     return this;
   }
 
