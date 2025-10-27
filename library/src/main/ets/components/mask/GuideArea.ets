@@ -39,7 +39,13 @@ export class GuideArea {
     this.isCircle = isCircle;
   }
 
-  static fromComponentInfo(info: componentUtils.ComponentInfo): GuideArea {
+  static fromComponentInfo(info: componentUtils.ComponentInfo, rectRadius: number = 0, padding: Padding = {
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+    isCircle: boolean = false): GuideArea {
     const area: Area = {
       width: px2vp(info.size.width),
       height: px2vp(info.size.height),
@@ -52,9 +58,17 @@ export class GuideArea {
         y: px2vp(info.screenOffset.y)
       }
     };
-    return new GuideArea(area);
+    return new GuideArea(area, rectRadius, padding, isCircle);
   }
 
+  /**
+   * 设置区域内边距
+   * @param top
+   * @param bottom
+   * @param left
+   * @param right
+   * @returns
+   */
   setPadding(top: number = 0, bottom: number = 0, left: number = 0, right: number = 0): GuideArea {
     this.padding = {
       top: top,
@@ -81,12 +95,17 @@ export class GuideArea {
 
   /**
    * 设置矩形圆角
-   * @param value
+   * @param value px
    */
-  setRectRadius(value: number) {
+  setRectRadius(value: number): GuideArea {
     this.rectRadius = value;
+    return this;
   }
 
+  /**
+   * 获取矩形圆角
+   * @returns vp
+   */
   getRectRadius(): number {
     return vp2px(this.rectRadius);
   }
