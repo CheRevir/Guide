@@ -1,4 +1,4 @@
-export interface GuideListener {
+export interface GuideStateListener {
   /**
    * 显示状态
    * @param isShow 是否显示

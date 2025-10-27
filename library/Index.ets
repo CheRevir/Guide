@@ -12,4 +12,6 @@ export { GuideArea } from './src/main/ets/components/mask/GuideArea';
 
 export { TranAreaMask } from './src/main/ets/components/mask/TranAreaMask';
 
-export { GuideListener } from './src/main/ets/components/GuideListener';
+export { GuideStateListener } from './src/main/ets/components/GuideStateListener';
+
+export { GuideEventListener } from './src/main/ets/components/GuideEventListener';

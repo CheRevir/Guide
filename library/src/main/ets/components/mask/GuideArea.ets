@@ -79,6 +79,14 @@ export class GuideArea {
     return this.isCircle;
   }
 
+  /**
+   * 设置矩形圆角
+   * @param value
+   */
+  setRectRadius(value: number) {
+    this.rectRadius = value;
+  }
+
   getRectRadius(): number {
     return vp2px(this.rectRadius);
   }

@@ -83,17 +83,17 @@ function builder(params: CustomGuideParams) {
 
 默认guideController为静态对象，可以根据需求自己创建并传入Guide({controller:})
 
-|**方法**          | 参数              | 功能                      |
-|-----------------|-----------------|-------------------------|
-|setMask          | MaskRender子类    | 设置引导的蒙版                 |
-|setGuideBuilder  | WrappedBuilder  | 设置引导内容全局自定义@Builder函数   |
-|setGuideBuilderParams| GuideParams子类 | 设置引导内容全局自定义@Builder函数参数 |
-|setMaskSize| Size            | 设置蒙版大小                  |
-|setGuideListenr  | GuideListener  |设置监听器         |
-|show|                 | 显示引导                    |
-|dismiss|                 | 隐藏引导                    |
-|rebuild|                 | 重绘                      |
-|state|          GuideState       | 引导状态                    |
+| **方法**                | 参数                 | 功能                      |
+|-----------------------|--------------------|-------------------------|
+| setMask               | MaskRender子类       | 设置引导的蒙版                 |
+| setGuideBuilder       | WrappedBuilder     | 设置引导内容全局自定义@Builder函数   |
+| setGuideBuilderParams | GuideParams子类      | 设置引导内容全局自定义@Builder函数参数 |
+| setMaskSize           | Size               | 设置蒙版大小                  |
+| setGuideStateListenr  | GuideStateListener | 设置状态监听器                 |
+| show                  |                    | 显示引导                    |
+| dismiss               |                    | 隐藏引导                    |
+| rebuild               |                    | 重绘                      |
+| state                 | GuideState         | 引导状态                    |
 
 # 蒙版
 

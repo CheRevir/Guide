@@ -20,10 +20,11 @@ function builder(params: CustomGuideParams) {
   .justifyContent(FlexAlign.Center)
   .height('100%')
   .width('100%')
-  .onClick(() => {
-    params.count++;
-    guideController.rebuild();
-  })
+
+  /*  .onClick(() => {
+      params.count++;
+      guideController.rebuild();
+    })*/
 }
 
 @Entry
@@ -69,11 +70,17 @@ struct Index {
               guideController.setMask(new TranAreaMask(new GuideArea(this.area, 18)))
                 .setGuideBuilder(wrapBuilder(builder))
                 .setGuideBuilderParams(this.params)
-                .setGuideListener({
+                .setGuideStateListener({
                   onState: (isShow: boolean) => {
                     console.log('aaaaaaaaa', isShow)
                   }
                 })
+               /* .setGuideEventListener({
+                  onClick: () => {
+                    console.log('aaaaaaaaa', 'onClick');
+                    guideController.dismiss();
+                  }
+                })*/
                 .show();
             })
             .margin({

@@ -2,7 +2,8 @@ import { MaskRender } from './mask/MaskRender';
 import { BuilderNode, FrameNode, NodeController, Size, UIContext } from '@kit.ArkUI';
 import { GuideParams } from './GuideParams';
 import { GuideState } from './GuideState';
-import { GuideListener } from './GuideListener';
+import { GuideStateListener } from './GuideStateListener';
+import { GuideEventListener } from './GuideEventListener';
 
 /**
  * 引导控制器
@@ -37,9 +38,13 @@ export class GuideController extends NodeController {
    */
   state: GuideState = new GuideState();
   /**
-   * 监听器
+   * 引导状态监听器
    */
-  listener: GuideListener | undefined = undefined;
+  listener: GuideStateListener | undefined = undefined;
+  /**
+   * 事件监听器
+   */
+  private eventListener: GuideEventListener | undefined = undefined;
 
   aboutToResize(size: Size): void {
     if (this.mask !== null) {
@@ -67,7 +72,16 @@ export class GuideController extends NodeController {
       const frame = this.builderNode.getFrameNode();
       this.rootNode.appendChild(frame);
     }
+    this.addGesture(this.rootNode.gestureEvent);
     return this.rootNode;
+  }
+
+  private addGesture(event: UIGestureEvent) {
+    event.addGesture(new TapGestureHandler().onAction(() => {
+      if (this.eventListener) {
+        this.eventListener.onClick();
+      }
+    }))
   }
 
   /**
@@ -111,12 +125,22 @@ export class GuideController extends NodeController {
   }
 
   /**
-   * 设置引导监听器
+   * 设置引导状态监听器
    * @param listener
    * @returns
    */
-  setGuideListener(listener: GuideListener): GuideController {
+  setGuideStateListener(listener: GuideStateListener): GuideController {
     this.listener = listener;
+    return this;
+  }
+
+  /**
+   * 设置事件监听器
+   * @param listener
+   * @returns
+   */
+  setGuideEventListener(listener: GuideEventListener): GuideController {
+    this.eventListener = listener;
     return this;
   }
 
